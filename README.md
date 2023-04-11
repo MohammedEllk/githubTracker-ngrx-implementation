@@ -1,27 +1,35 @@
-# GitTracker
+# GitTracker api
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.4.
+Page utilisateurs : 
+  pour visualiser les utilisateurs ===> localhost:4200/users
+  pour visualiser un utilisateur on clique sur l'oeil sur action comme suit: 
 
-## Development server
+![image](https://user-images.githubusercontent.com/50714453/231031730-ba1ec545-6ecc-49e3-9d02-95a4782b3d0c.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Page utilisateurs spécifique s'il existe ===> localhost:4200/users/#login
+example : localhost:4200/users/mojombo
+la page suivant : 
 
-## Code scaffolding
+![image](https://user-images.githubusercontent.com/50714453/231032089-6d51bbb7-7d7d-4474-b577-80f3725e07c7.png)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+On clique sur show all dans la section followers et on aura la liste de tous les followers qui follow cet utilisateur
 
-## Build
+![image](https://user-images.githubusercontent.com/50714453/231032232-d90db66c-d052-4f38-bb2a-dc55be61e7bb.png)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Si on clique sur show all dans la section dépots et on aura la liste de toutes les dépots :
 
-## Running unit tests
+![image](https://user-images.githubusercontent.com/50714453/231032378-4db1fe68-1f51-4b62-8521-13b5aba6a98c.png)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+On clique sur l'icone plus pour avoir plus détails sur le dépot de l'utilisateur 
 
-## Running end-to-end tests
+![image](https://user-images.githubusercontent.com/50714453/231032562-cd56897b-4e6e-4958-ae6f-f480d13699fa.png)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Normalement faut encore récuperer les donnés de commits pour pouvoir faire l'historique du commits au cours du temps (fonctionnalité)
 
-## Further help
+Pour la recherche d'un utilisateur on peut aller vers la page d'accueil 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![image](https://user-images.githubusercontent.com/50714453/231032901-e47c30af-0184-4a82-be37-af2bf360e2d9.png)
+
+Si l'utilisateur existe on va vers sa page infos sinon page => utilisateur non trouvé
+
+
