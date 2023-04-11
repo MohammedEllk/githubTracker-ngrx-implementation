@@ -14,15 +14,16 @@ import {
   import {catchError, map, mergeMap} from 'rxjs/operators';
 
 @Injectable()
-export class UsersEffects {
+export class DepotsEffects {
   constructor(private userService:UsersService, private effectActions:Actions) {
   }
 
-  getAllUsersEffect:Observable<Action>=createEffect(
+  getAllUsersDepotsEffect:Observable<Action>=createEffect(
     ()=>this.effectActions.pipe(
       ofType(DepotsActionsTypes.GET_USER_DEPOTS),
-      mergeMap((action)=>{
-            return this.userService.getDepotsUserByLogin()
+      mergeMap((action : any)=>{
+            console.log("action",action)
+            return this.userService.getDepotsUserByLogin(action.payload)
               .pipe(
                 map((depots)=> new GetUserDepotsActionSuccess(depots)),
                 catchError((err)=>of(new GetUserDepotsActionFailed(err.message)))
@@ -32,12 +33,12 @@ export class UsersEffects {
   );
 
   /* Get Users by name*/
-  getUserByLoginEffect:Observable<Action>=createEffect(
+  getUserDepotByLoginEffect:Observable<Action>=createEffect(
     ()=>this.effectActions.pipe(
       ofType(DepotsActionsTypes.GET_USER_REPO_NAMEREPO),
-      mergeMap((action)=>{
+      mergeMap((action: any)=>{
         console.log("action effects",action);
-        return this.userService.getDepotByUserAndDepotName()
+        return this.userService.getDepotByUserAndDepotName(action.payload)
           .pipe(
             map((depots)=> new GetUserRepoActionSuccess(depots)),
             catchError((err)=>of(new GetUserRepoActionFailed(err.message)))

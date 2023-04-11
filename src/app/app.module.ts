@@ -8,6 +8,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {StoreModule, combineReducers} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
 
+import { FormsModule } from '@angular/forms';
+
 import {USERSReducer} from './reducers/users.reducer'
 import { reducers } from './reducers';
 import {DepotsReducer} from './reducers/depots.reducer'
@@ -32,6 +34,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { UserDetailsComponent } from './components/users/details/user-details/user-details.component';
 import { HomeComponent } from './components/home/home/home.component';
+import { DepotsComponent } from './components/depots/depots.component';
+import { FollowersComponent } from './components/followers/followers.component';
+import { DepotsEffects } from './effects/depot.effects';
+import { DepotDetailsComponent } from './components/depots/depot-details/depot-details.component';
 
 
 
@@ -41,14 +47,17 @@ import { HomeComponent } from './components/home/home/home.component';
     UsersComponent,
     NavbarComponent,
     UserDetailsComponent,
-    HomeComponent
+    HomeComponent,
+    DepotsComponent,
+    FollowersComponent,
+    DepotDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([UsersEffects]),
+    EffectsModule.forRoot([UsersEffects,DepotsEffects]),
     MdbAccordionModule,
     MdbCarouselModule,
     MdbCheckboxModule,
@@ -64,7 +73,8 @@ import { HomeComponent } from './components/home/home/home.component';
     MdbTabsModule,
     MdbTooltipModule,
     MdbValidationModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

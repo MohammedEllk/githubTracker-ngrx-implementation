@@ -16,5 +16,15 @@ export interface User {
     events_url : string,
     received_events_url : string,
     type : string,
-    site_admin : boolean
+    site_admin : boolean,
+    followers : number,
+    following : number,
+    public_repos : number,
+    location : string,
+    company : string
+}
+
+export interface userDepot {
+    login : string,
+    nameRepo : string
 }

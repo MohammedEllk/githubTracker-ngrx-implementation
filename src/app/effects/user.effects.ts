@@ -36,9 +36,9 @@ export class UsersEffects {
   getUserByLoginEffect:Observable<Action>=createEffect(
     ()=>this.effectActions.pipe(
       ofType(UsersActionsTypes.GET_USER_BYLOGIN),
-      mergeMap((action)=>{
+      mergeMap((action : any)=>{
         console.log("action effects by",action);
-        return this.userService.getUserByLogin(action)
+        return this.userService.getUserByLogin(action.payload)
           .pipe(
             map((users)=> new GetUserByLoginActionSuccess(users)),
             catchError((err)=>of(new GetUserByLoginActionFailed(err.message)))
@@ -51,9 +51,9 @@ export class UsersEffects {
     getUserFollowersByLoginEffect:Observable<Action>=createEffect(
       ()=>this.effectActions.pipe(
         ofType(UsersActionsTypes.GET_USER_FOLLOWERS),
-        mergeMap((action)=>{
+        mergeMap((action : any)=>{
           console.log("action effects followers",action);
-          return this.userService.getFollowersUserByLogin(action)
+          return this.userService.getFollowersUserByLogin(action.payload)
             .pipe(
               map((users)=> new GetUserFollowersActionSuccess(users)),
               catchError((err)=>of(new GetUserFollowersActionFailed(err.message)))

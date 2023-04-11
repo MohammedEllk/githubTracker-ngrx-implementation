@@ -11,8 +11,8 @@ export enum DepotsActionsTypes {
 
     // action pour récupérer le nom d'un repository d'un utilisateur
     GET_USER_REPO_NAMEREPO = "[Users] Get user repo by repo's name and user's name",
-    GET_USER_REPO_NAMEREPO_SUCCESS = "[Users] Get user repo by repo's name and user's name",
-    GET_USER_REPO_NAMEREPO_FAILED = "[Users] Get user repo by repo's name and user's name",
+    GET_USER_REPO_NAMEREPO_SUCCESS = "[Users] Get user repo by repo's name and user's name success",
+    GET_USER_REPO_NAMEREPO_FAILED = "[Users] Get user repo by repo's name and user's name failed",
 
 }
 

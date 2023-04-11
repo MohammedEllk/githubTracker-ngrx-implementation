@@ -1,1 +1,18 @@
+<div class="container py-5 h-100">
 
+    <h1>GitHub tracker api</h1>
+    <h4></h4>
+    <img class="api-git"
+     src="https://thurrott.s3.amazonaws.com/wp-content/uploads/sites/2/2023/01/GitHub.jpeg"
+     alt="Github api tracker">
+    <br />
+  
+    <div class="input-group mb-3">
+      <div class="form-outline">
+        <input [(ngModel)]="name" type="text" id="form12" class="form-control" />
+        <label class="form-label" for="form12">Github search profile</label>
+      </div>
+      <button (click)="chercher()" type="button" class="btn btn-success">search</button>
+    </div>
+
+</div>

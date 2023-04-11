@@ -37,12 +37,15 @@ export function USERSReducer(state=initState, action:Action):UsersState {
       return {...state, dataState:UsersStateEnum.LOADED, USERS:(<UsersActions>action).payload}
     case UsersActionsTypes.GET_USER_BYLOGIN_FAILED:
       return {...state, dataState:UsersStateEnum.ERROR, errorMessage:(<UsersActions>action).payload}
+    //GET user followers 
     case UsersActionsTypes.GET_USER_FOLLOWERS:
-        return {...state, dataState:UsersStateEnum.LOADING, errorMessage:(<UsersActions>action).payload}
+      return {...state, dataState:UsersStateEnum.LOADING}
     case UsersActionsTypes.GET_USER_FOLLOWERS_SUCCESS:
-        return {...state, dataState:UsersStateEnum.LOADED, errorMessage:(<UsersActions>action).payload}
-    case UsersActionsTypes.GET_USER_FOLLOWERS:
-        return {...state, dataState:UsersStateEnum.LOADING, errorMessage:(<UsersActions>action).payload}
-    default : return {...state}
+      return {...state, dataState:UsersStateEnum.LOADED, USERS:(<UsersActions>action).payload}
+    case UsersActionsTypes.GET_USER_FOLLOWERS_FAILED:
+      return {...state, dataState:UsersStateEnum.ERROR, errorMessage:(<UsersActions>action).payload}
+    
+    default : 
+      return {...state}
   }
 }

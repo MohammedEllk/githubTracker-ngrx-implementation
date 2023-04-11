@@ -1,0 +1,125 @@
+<div class="p-4">
+    <ng-container *ngIf="depotState$ | async as state" [ngSwitch]="state.dataState">
+      <ng-container *ngSwitchCase="depotsStateEnum.INITIAL">
+        <div class="p-2">INITIAL STATE</div>
+      </ng-container>
+      <ng-container *ngSwitchCase="depotsStateEnum.LOADING">
+        <div class="p-2">LOADING</div>
+      </ng-container>
+      <ng-container *ngSwitchCase="depotsStateEnum.LOADED">
+    
+        <!--Main layout-->
+  <main style="margin-top: 58px">
+    <div class="container pt-4">
+      <!--Section: Statistics with subtitles-->
+      <div> Infos sur le déport : {{state.DEPOTS[0].name}}</div>
+      <section>
+        <div class="row">
+          <div class="col-xl-6 col-md-12 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex justify-content-between p-md-1">
+                  <div class="d-flex flex-row">
+                    <div class="align-self-center">
+                      <i class="fas fa-pencil-alt text-info fa-3x me-4"></i>
+                    </div>
+                    <div>
+                      <h4>Nombres des issues</h4>
+                    </div>
+                  </div>
+                  <div class="align-self-center">
+                    <h2 class="h1 mb-0">{{state.DEPOTS[0].open_issues}}</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-6 col-md-12 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex justify-content-between p-md-1">
+                  <div class="d-flex flex-row">
+                    <div class="align-self-center">
+                      <i
+                         class="far fa-comment-alt text-warning fa-3x me-4"
+                         ></i>
+                    </div>
+                    <div>
+                      <h4>Nombre forks</h4>
+                    </div>
+                  </div>
+                  <div class="align-self-center">
+                    <h2 class="h1 mb-0">{{state.DEPOTS[0].forks}}</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xl-6 col-md-12 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex justify-content-between p-md-1">
+                  <div class="d-flex flex-row">
+                    <div class="align-self-center">
+                      <h2 class="h1 mb-0 me-4">{{state.DEPOTS[0].watchers}}</h2>
+                    </div>
+                    <div>
+                      <h4>Nombres vues</h4>
+                    </div>
+                  </div>
+                  <div class="align-self-center">
+                    <i class="far fa-heart text-danger fa-3x"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-6 col-md-12 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex justify-content-between p-md-1">
+                  <div class="d-flex flex-row">
+                    <div class="align-self-center">
+                      <h2 class="h1 mb-0 me-4">{{state.DEPOTS[0].stargazers_count}}</h2>
+                    </div>
+                    <div>
+                      <h4>Nombre des stars</h4>
+                    </div>
+                  </div>
+                  <div class="align-self-center">
+                    <i class="fas fa-wallet text-success fa-3x"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--Section: Statistics with subtitles-->
+
+         <!-- Section: Main chart -->
+         <section class="mb-4">
+            <div class="card">
+              <div class="card-header py-3">
+                <h5 class="mb-0 text-center"><strong>Commits par days</strong></h5>
+              </div>
+              <div class="card-body">
+                <canvas class="my-4 w-100" id="myChart" height="380" #mychart></canvas>
+              </div>
+            </div>
+          </section>
+          <!-- Section: Main chart -->
+      
+    </div>
+  </main>
+  <!--Main layout-->
+
+        
+      </ng-container>
+    </ng-container>
+</div>
+    
+
+
